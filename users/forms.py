@@ -1,5 +1,6 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+
 from .models import CustomUser
 
 
@@ -16,3 +17,7 @@ class UserRegisterForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+
+class UserLoginForm(AuthenticationForm):
+    pass
