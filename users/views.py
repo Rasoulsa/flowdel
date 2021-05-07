@@ -7,5 +7,5 @@ from .forms import UserRegisterForm
 class RegisterView(SuccessMessageMixin, CreateView):
     template_name = 'users/users_register.html'
     form_class = UserRegisterForm
-    success_url = reverse_lazy('users:users register')
+    success_url = reverse_lazy('users:register')
     success_message = "%(phone)s was created successfully"
