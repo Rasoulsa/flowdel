@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<body>
+    {% block content %}
+    {% if messages %}
+            {% for message in messages %}
+
+                <div >
+		                {{ message }}
+		        </div>
+                
+            {% endfor %}
+        {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            {{ form.as_p }}
+            <button class="btn-outline-info" type="submit">Register</button>   
+        </fieldset>
+    </form>
+    {% endblock %}
+</body>
+</html>
