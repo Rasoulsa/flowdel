@@ -11,8 +11,19 @@ class RegisterView(SuccessMessageMixin, CreateView):
     success_url = reverse_lazy('users:register')
     success_message = "%(phone)s was created successfully"
 
+    def get_context_data(self, *args, **kwargs):
+        data = super(RegisterView, self).get_context_data(*args, **kwargs)
+        data['page_title'] = 'Register'
+        return data
+
 
 class CustomLoginView(SuccessMessageMixin, LoginView):
     template_name = 'users/users_login.html'
     form_class = UserLoginForm
     success_message = "%(username)s was login successfully"
+
+
+def get_context_data(self, *args, **kwargs):
+    data = super(CustomLoginView, self).get_context_data(*args, **kwargs)
+    data['page_title'] = 'Log In'
+    return data
