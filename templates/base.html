@@ -7,11 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'flowdel/style.css' %}">
 
-    {% if page_title %}
-        <title>{{ page_title }}</title>
-    {% else %}
-        <title>Home</title>
-    {% endif %}
+    {% block title %}
+    
+    {% endblock %}
     
 </head>
 <body>
