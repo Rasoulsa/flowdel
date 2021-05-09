@@ -55,6 +55,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+LOGIN_REDIRECT_URL = '/users/login'
+
 AUTH_USER_MODEL = 'users.CustomUser'
 
 ROOT_URLCONF = 'flowdel.urls'
