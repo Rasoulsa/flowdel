@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title> Profile </title>
+{% endblock %}
+
+{% block content %}
+
+    {% if messages %}
+
+        {% for message in messages %}
+
+            <div >
+                {{ message }}
+            </div>    
+
+        {% endfor %}
+
+    {% endif %}    
+    
+    <h2>{{ object.first_name }}'s Profile</h2>
+    <p>{{ object.first_name }}</p>
+    <p>{{ object.last_name }}</p>
+    <p>{{ object.email }}</p>
+    
+{% endblock %}

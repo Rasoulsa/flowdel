@@ -26,9 +26,9 @@ class Provider(models.Model):
     # password
     password = models.CharField(max_length=200, null=False, blank=False)
 
-    def save(self, *args, **kwargs):
+    def save(self):
         self.password = make_password(self.password)
-        super(Provider, self).save(*args, **kwargs)
+        super(Provider, self).save()
 
     # objects = CustomProviderManager()
 
