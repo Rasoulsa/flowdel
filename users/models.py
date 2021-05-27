@@ -1,7 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser, BaseUserManager
+from django.contrib.auth.models import AbstractUser
 from django.core.validators import RegexValidator
 from django.utils.translation import ugettext_lazy as _
+from django.template.defaultfilters import slugify
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 from .manage import CustomUserManager
 
 
@@ -12,7 +15,14 @@ class CustomUser(AbstractUser):
     phone = models.CharField(validators=[
         phone_regex], max_length=17, blank=False, null=False, unique=True)  # validators should be a list
 
+    slug = models.SlugField(max_length=255, unique=True)
+
     USERNAME_FIELD = 'phone'
     REQUIRED_FIELDS = []
 
     objects = CustomUserManager()
+
+    # def save(self, *args, **kwargs):
+    #     slug = slugify(self.phone)
+    #     self.slug = slug
+    #     super().save(*args, **kwargs)
